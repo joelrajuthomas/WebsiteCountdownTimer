@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <title>Lectro ICO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/style.css">
+
+  <title>Lectro ICO</title>
+		<style type="text/css">
+		body {
+			background: #f6f6f6;
+		}
+
+		.countdownContainer{
+			position: absolute;;
+			top: 20%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			text-align: center;
+			background: rgba(0, 0, 0, 0);
+			border: 0px solid rgba(153, 153, 153, 0);
+			padding: 10px;
+			box-shadow: 0 0 0 0 rgba(204, 204, 204, 0);
+		}
+
+		.info {
+      font-size: 90px;
+      font: helvetica;
+		}
+		</style>
+</head>
+<body>
+  
+<!-- count particles -->
+
+
+<!-- particles.js container -->
+<div id="particles-js"></div>
+
+<!-- scripts -->
+<script src="../particles.js"></script>
+<script src="js/app.js"></script>
+
+<!-- stats.js -->
+
+<script>
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+</script>
+<table class="countdownContainer">
+    <tr class="info">
+      <td colspan="4">LECTRO ICO COUNTDOWN</td>
+    </tr>
+    <tr class="info">
+      <td id="days">120</td>
+      <td id="hours">4</td>
+      <td id="minutes">12</td>
+      <td id="seconds">22</td>
+    </tr>
+    <tr>
+      <td>Days</td>
+      <td>Hours</td>
+      <td>Minutes</td>
+      <td>Seconds</td>
+    </tr>
+  </table>
+  <script type="text/javascript">
+
+    function countdown(){
+      var now = new Date();
+      var eventDate = new Date(2018, 7, 13);
+
+      var currentTiime = now.getTime();
+      var eventTime = eventDate.getTime();
+
+      var remTime = eventTime - currentTiime;
+
+      var s = Math.floor(remTime / 1000);
+      var m = Math.floor(s / 60);
+      var h = Math.floor(m / 60);
+      var d = Math.floor(h / 24);
+
+      h %= 24;
+      m %= 60;
+      s %= 60;
+
+      h = (h < 10) ? "0" + h : h;
+      m = (m < 10) ? "0" + m : m;
+      s = (s < 10) ? "0" + s : s;
+
+      document.getElementById("days").textContent = d;
+      document.getElementById("days").innerText = d;
+
+      document.getElementById("hours").textContent = h;
+      document.getElementById("minutes").textContent = m;
+      document.getElementById("seconds").textContent = s;
+
+      setTimeout(countdown, 1000);
+    }
+
+    countdown();
+  </script>
+  
+
+
+</body>
+</html>
